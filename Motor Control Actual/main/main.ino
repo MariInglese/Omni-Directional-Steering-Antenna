@@ -4,7 +4,7 @@
 #include "search_mode.h"
 
 String serial_input = ""; 
-std::string mode = "static"; 
+std::string mode = "pan"; 
 
 void setup(){
   pinMode(dir_pin_m1, OUTPUT); 
@@ -43,6 +43,9 @@ void loop(){
         serial_input += incoming_char;
       }
     }
+  }
+  if(mode == "pan"){
+      run_pan_mode(3000, m1_pos); 
   }
 }
 
